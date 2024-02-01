@@ -1,0 +1,685 @@
+openapi: 3.0.3
+info:
+  title: Your Project API
+  version: 1.0.0
+  description: Your project description
+paths:
+  /marca/:
+    get:
+      operationId: marca_list
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Marca.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - marca
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarcaList'
+          description: ''
+    post:
+      operationId: marca_create
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Marca.
+      tags:
+      - marca
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Marca'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+  /marca/{id}/:
+    get:
+      operationId: marca_retrieve
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Marca.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - marca
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+    put:
+      operationId: marca_update
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Marca.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - marca
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Marca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Marca'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+    patch:
+      operationId: marca_partial_update
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Marca.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - marca
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMarca'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMarca'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMarca'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+          description: ''
+    delete:
+      operationId: marca_destroy
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Marca.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this marca.
+        required: true
+      tags:
+      - marca
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /users/:
+    get:
+      operationId: users_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserList'
+          description: ''
+  /users/{id}/:
+    get:
+      operationId: users_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - users
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /vehiculo/:
+    get:
+      operationId: vehiculo_list
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedVehiculoList'
+          description: ''
+    post:
+      operationId: vehiculo_create
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      tags:
+      - vehiculo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehiculo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vehiculo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vehiculo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+  /vehiculo/{id}/:
+    get:
+      operationId: vehiculo_retrieve
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this vehiculo.
+        required: true
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+    put:
+      operationId: vehiculo_update
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this vehiculo.
+        required: true
+      tags:
+      - vehiculo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehiculo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vehiculo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vehiculo'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+    patch:
+      operationId: vehiculo_partial_update
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this vehiculo.
+        required: true
+      tags:
+      - vehiculo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedVehiculo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedVehiculo'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedVehiculo'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+    delete:
+      operationId: vehiculo_destroy
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this vehiculo.
+        required: true
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /vehiculo/filtrar-por-fecha/:
+    get:
+      operationId: vehiculo_filtrar_por_fecha_retrieve
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+  /vehiculo/filtrar-por-marca/:
+    get:
+      operationId: vehiculo_filtrar_por_marca_retrieve
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+  /vehiculo/filtrar-por-marca-modelo-colores/:
+    get:
+      operationId: vehiculo_filtrar_por_marca_modelo_colores_retrieve
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+  /vehiculo/filtrar_por_fecha/:
+    get:
+      operationId: vehiculo_filtrar_por_fecha_retrieve_2
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+  /vehiculo/filtrar_por_marca_modelo_colores/:
+    get:
+      operationId: vehiculo_filtrar_por_marca_modelo_colores_retrieve_2
+      description: |-
+        Este ViewSet proporciona acciones de `list`, `create`, `retrieve`,
+        `update`, `destroy` y una acción personalizada `highlight` para el modelo Vehiculo.
+      tags:
+      - vehiculo
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehiculo'
+          description: ''
+components:
+  schemas:
+    Marca:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 50
+      required:
+      - id
+      - nombre
+    PaginatedMarcaList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Marca'
+    PaginatedUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    PaginatedVehiculoList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vehiculo'
+    PatchedMarca:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre:
+          type: string
+          maxLength: 50
+    PatchedVehiculo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipo_vehiculo:
+          $ref: '#/components/schemas/TipoVehiculoEnum'
+        chasis:
+          type: string
+          maxLength: 50
+        modelo:
+          type: string
+          maxLength: 50
+        matricula:
+          type: string
+          maxLength: 20
+        color:
+          type: string
+          maxLength: 20
+        fecha_fabricacion:
+          type: string
+          format: date
+        fecha_matriculacion:
+          type: string
+          format: date
+        fecha_baja:
+          type: string
+          format: date
+          nullable: true
+        suspendido:
+          type: boolean
+        marca:
+          type: integer
+    TipoVehiculoEnum:
+      enum:
+      - Coche
+      - Ciclomotor
+      - Motocicleta
+      type: string
+      description: |-
+        * `Coche` - Coche
+        * `Ciclomotor` - Ciclomotor
+        * `Motocicleta` - Motocicleta
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        vehiculo:
+          type: array
+          items:
+            type: integer
+        marca:
+          type: array
+          items:
+            type: integer
+      required:
+      - id
+      - marca
+      - username
+      - vehiculo
+    Vehiculo:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        tipo_vehiculo:
+          $ref: '#/components/schemas/TipoVehiculoEnum'
+        chasis:
+          type: string
+          maxLength: 50
+        modelo:
+          type: string
+          maxLength: 50
+        matricula:
+          type: string
+          maxLength: 20
+        color:
+          type: string
+          maxLength: 20
+        fecha_fabricacion:
+          type: string
+          format: date
+        fecha_matriculacion:
+          type: string
+          format: date
+        fecha_baja:
+          type: string
+          format: date
+          nullable: true
+        suspendido:
+          type: boolean
+        marca:
+          type: integer
+      required:
+      - chasis
+      - color
+      - fecha_fabricacion
+      - fecha_matriculacion
+      - id
+      - marca
+      - matricula
+      - modelo
+      - tipo_vehiculo
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

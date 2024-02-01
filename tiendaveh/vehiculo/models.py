@@ -14,7 +14,7 @@ class Vehiculo(models.Model):
     ]
 
     tipo_vehiculo = models.CharField(max_length=20, choices=TIPO_CHOICES)
-    chasis = models.CharField(max_length=50, unique=True)
+    chasis = models.CharField(max_length=50, unique=False)
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     modelo = models.CharField(max_length=50)
     matricula = models.CharField(max_length=20, unique=True)

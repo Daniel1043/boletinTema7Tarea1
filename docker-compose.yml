@@ -7,20 +7,20 @@ services:
 # https://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html
   postgres:
     build:
-      context: ../../tutorialDanielTEMA7/drf-tutorials-Daniel1043
+      context: ../../boletinTema7/boletinTema7Tarea1
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: django-base-tutorial-daniel
-    container_name: django-base-pro_local_postgres_tutorialtmsiete
+    image: django-base-boletin-daniel
+    container_name: django-base-pro_local_postgres_boletin
     env_file:
       - ./.envs/.local/.postgres
     volumes:
-      - djangobasepro_tutorial_data:/var/lib/postgresql/data
+      - djangobasepro_boletin_data:/var/lib/postgresql/data
       #- djangobasepro_tutorial_backups:/backups
     ports:
       - 5432:5432
 
 volumes:
-  djangobasepro_tutorial_data:
+  djangobasepro_boletin_data:
   #djangobasepro_tutorial_backups:
 
 
