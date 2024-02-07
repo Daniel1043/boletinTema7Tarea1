@@ -9,8 +9,8 @@ services:
     build:
       context: ../../boletinTema7/boletinTema7Tarea1
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: django-base-boletin-daniel
-    container_name: django-base-pro_local_postgres_boletin
+    image: django-base-boletin2-daniel
+    container_name: django-base-pro_local_postgres_boletin2
     env_file:
       - ./.envs/.local/.postgres
     volumes:

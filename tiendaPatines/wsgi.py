@@ -1,5 +1,5 @@
 """
-WSGI config for tiendaveh project.
+WSGI config for tiendaPatines project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tiendaveh.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tiendaPatines.settings')
 
 application = get_wsgi_application()
