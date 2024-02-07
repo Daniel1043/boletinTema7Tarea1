@@ -14,6 +14,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework import permissions
 from .permissions import IsEditorUser
+from rest_framework.request import Request
 
 
 class MarcaViewSet(viewsets.ModelViewSet):
@@ -47,9 +48,11 @@ class vehiculoViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=False, methods=['GET'], url_path='filtrar_por_fecha', url_name='filtrar_por_fecha')
-    def filtrar_por_fecha(self, *args, **kwargs):
+    def filtrar_por_fecha(self, request, *args, **kwargs):
         vehiculos_filtrados_fechas = Vehiculo.objects.all().order_by('-fecha_fabricacion')
-        serializer = VehiculoSerializer(vehiculos_filtrados_fechas, many=True)
+
+        # Pasa el objeto request al instanciar el serializador
+        serializer = VehiculoSerializer(vehiculos_filtrados_fechas, many=True, context={'request': request})
         return Response(serializer.data)
 
     @action(detail=False, methods=['GET'], url_path='filtrar_por_marca_modelo_colores', url_name='filtrar_por_marca_modelo_colores')
